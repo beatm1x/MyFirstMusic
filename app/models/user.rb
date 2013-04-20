@@ -1,4 +1,17 @@
 class User < ActiveRecord::Base
-  belongs_to :group
-  attr_accessible :name, :password
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  # attr_accessible :title, :body
+  private
+  def create_role
+    self.roles << Role.find_by_name(:user)
+  end
+  has_many :users_roles
+  has_many :roles, :through => :users_roles
 end

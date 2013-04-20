@@ -1,4 +1,9 @@
 MyFirstMusic::Application.routes.draw do
+  root :to => 'home#index'
+  resources :posts
+  devise_for :users
+  #devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
