@@ -1,0 +1,13 @@
+<ul>
+  <% if user_signed_in? %>
+      <li><%= current_user.username%> you <%-if can? :ok , :all %>
+            <%# Role.find_by_id(UsersRole.find_by_user_id(current_user.id).role_id).name %>
+            admin
+        <% end %></li>
+      <li><%= link_to "My Profile", edit_user_registration_path%> </li>
+      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+  <% else %>
+      <li><%= link_to "Registration", new_user_registration_path%> </li>
+      <li><%= link_to "Sign in", new_user_session_path%> </li>
+  <% end %>
+</ul>
