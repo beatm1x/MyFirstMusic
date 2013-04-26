@@ -3,7 +3,6 @@ class CreateUserAudios < ActiveRecord::Migration
     create_table :user_audios do |t|
       t.references :user
       t.references :audio
-
       t.timestamps
     end
     add_index :user_audios, :user_id

@@ -4,12 +4,22 @@
   <title>MyFirstMusic</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "360player", :media => "all" %>
+  <%= javascript_include_tag "soundmanager2-jsmin" %>
+  <%= javascript_include_tag "360player" %>
+  <%= javascript_include_tag "jquery-1.9.1.min" %>
+  <%= javascript_include_tag "berniecode-animator" %>
+  <%= javascript_include_tag "app" %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <%= javascript_include_tag "jquery.ui.widget" %>
+  <%= javascript_include_tag "jquery.iframe-transport" %>
+  <%= javascript_include_tag "jquery.fileupload" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="header">
+<header>
   <%= render "shared/links" %>
-</div>
+</header>
 <%= yield %>
 
 </body>

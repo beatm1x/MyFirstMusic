@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'mysql2'
 gem 'devise'
 gem 'cancan'
+gem 'safe_attributes'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
