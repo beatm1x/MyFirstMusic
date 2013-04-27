@@ -1,9 +1,9 @@
 MyFirstMusic::Application.routes.draw do
-  root :to => 'audios#index'
-  resources :posts
+  #root :to => 'audios#index'
+  resources :uploads
+  root :to => 'uploads#index'
   resources :audios
   devise_for :users
-  resources :pictures, :only => [:index, :create, :destroy]
   #devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   # The priority is based upon order of creation:

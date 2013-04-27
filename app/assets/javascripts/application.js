@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree
+//= require jquery-fileupload
+//= require berniecode-animator
+//= require soundmanager2-jsmin
+//= require 360player
+//= require app
 

@@ -29,14 +29,14 @@ class AudiosController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    /# @audio = Audio.new
+     @audio = Audio.new
     @audio.user_id= current_user.id
     @audio.hash='1235'
-    @audio.name='my_name'
+    #@audio.name='my_name'
     respond_to do |format|
       format.html # new.html.erb
-      #format.json { render json: @audio }
-    end #/
+      format.json { render json: @audio }
+    end
   end
 
   # GET /posts/1/edit
@@ -47,19 +47,20 @@ class AudiosController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    /# #@post = Post.new(pupdatearams[:post])
+    #@post = Post.new(pupdatearams[:post])
     #@post = current_user.posts.new(params[:post])
-    @audio= current_user.audios.new(params[:audio])
-    @audio.user_id= current_user.id #/
-    #respond_to do |format|
-      #if @audio.save
-     #   format.html { redirect_to @audio, notice: 'Post was successfully created.' }
-      #  format.json { render json: @audio, status: :created, location: @audio }
-      #else
-      #  format.html { render action: "new" }
-      #  format.json { render json: @audio.errors, status: :unprocessable_entity }
-      #end
-    #end
+    #@audio= current_user.audios.new(params[:audio])
+    @audio= Audio.new(params[:audio])
+    #@audio.user_id= current_user.id
+    respond_to do |format|
+      if @audio.save
+        format.html { redirect_to @audio, notice: 'Post was successfully created.' }
+        format.json { render json: @audio, status: :created, location: @audio }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @audio.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /posts/1

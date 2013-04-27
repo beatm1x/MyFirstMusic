@@ -42,4 +42,5 @@ class User < ActiveRecord::Base
   end
   has_many :users_roles
   has_many :roles, :through => :users_roles
+  has_many :user_audios
 end
