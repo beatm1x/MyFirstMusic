@@ -6,7 +6,7 @@ soundManager.setup({
 threeSixtyPlayer.config.loadRingColor =  '#00BFFF';
 threeSixtyPlayer.config.playRingColor = '#000';
 threeSixtyPlayer.config.backgroundRingColor= '#00FFFF';
-
+threeSixtyPlayer.config.playNext= true;
 /*$("#slide").css("display", "none");
 $(".ui360").css("display", "none");
 $("b").css("display", "none");

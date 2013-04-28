@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  after_create :creat_users_role,:create_dir_user
+  after_create :creat_users_role
   before_destroy :destroy_users_role
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :title, :body
@@ -18,9 +18,6 @@ class User < ActiveRecord::Base
     temp.user_id=self.id
     temp.role_id=Role.find_by_name('user').id
     self.users_roles<<temp
-  end
-  def create_dir_user
-    Dir.mkdir('all/'+self.id.to_s+'/audios')
   end
   def destroy_users_role
     self.users_roles.find_by_user_id(self.id).destroy
@@ -42,5 +39,6 @@ class User < ActiveRecord::Base
   end
   has_many :users_roles
   has_many :roles, :through => :users_roles
-  has_many :user_audios
+  has_many :user_uploads
+  has_many :uploads, :through => :user_uploads
 end

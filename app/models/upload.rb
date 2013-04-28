@@ -1,7 +1,9 @@
 class Upload < ActiveRecord::Base
+  has_many :user_uploads
+  has_many :users, :through => :user_uploads
   attr_accessible :upload
   has_attached_file :upload
-
+  attr_accessible :users
   include Rails.application.routes.url_helpers
 
   def to_jq_upload

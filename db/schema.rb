@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423121222) do
-
-  create_table "audios", :force => true do |t|
-    t.string   "hash"
-    t.string   "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130427141605) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -35,16 +28,15 @@ ActiveRecord::Schema.define(:version => 20130423121222) do
     t.datetime "updated_at",          :null => false
   end
 
-  create_table "user_audios", :force => true do |t|
+  create_table "user_uploads", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "audio_id"
+    t.integer  "upload_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "name"
   end
 
-  add_index "user_audios", ["audio_id"], :name => "index_user_audios_on_audio_id"
-  add_index "user_audios", ["user_id"], :name => "index_user_audios_on_user_id"
+  add_index "user_uploads", ["upload_id"], :name => "index_user_uploads_on_upload_id"
+  add_index "user_uploads", ["user_id"], :name => "index_user_uploads_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

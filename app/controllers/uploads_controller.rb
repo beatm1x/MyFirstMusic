@@ -2,12 +2,17 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.json
   def index
-    @uploads = Upload.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @uploads.map{|upload| upload.to_jq_upload } }
+    if user_signed_in?
+      @uploads = current_user.uploads
+      #Upload.where(:users. => current_user)
+    else
+      @uploads=nil
     end
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @uploads.map{|upload| upload.to_jq_upload } }
+
+      end
   end
 
   # GET /uploads/1
@@ -41,9 +46,9 @@ class UploadsController < ApplicationController
   # POST /uploads.json
   def create
     @upload = Upload.new(params[:upload])
-
     respond_to do |format|
       if @upload.save
+        UserUpload.new(:user=>current_user,:upload=>@upload).save
         format.html {
           render :json => [@upload.to_jq_upload].to_json,
           :content_type => 'text/html',
