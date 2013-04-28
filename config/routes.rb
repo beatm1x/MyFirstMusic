@@ -2,8 +2,8 @@ MyFirstMusic::Application.routes.draw do
   resources :user_uploads
   #root :to => 'audios#index'
   resources :uploads
-  resources :user_uploads
-  root :to => 'uploads#index'
+  resources :user_uploads, :path=>'playlist'
+  root :to => 'user_uploads#index'
   devise_for :users
   #devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 

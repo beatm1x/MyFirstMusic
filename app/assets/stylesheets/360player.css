@@ -62,11 +62,13 @@
 
 .ui360 a:hover,
 .ui360 a:focus {
- background:#eee;
+ background:#cc0000;
  border-radius:3px;
  outline:none;
 }
-
+.ui360:nth-child(even) {
+    background-color: #eee;
+}
 .ui360 .sm2-canvas {
  position:absolute;
  left:0px;
@@ -268,12 +270,4 @@ div.ui360 a span.metadata,
 div.ui360 a span.metadata * {
  /* name of track, note etc. */
  vertical-align:baseline;
-}
-.bar {
-    height: 18px;
-    background: green;
-}
-#progress{
-     width: 150px;
-    background: red;
 }
