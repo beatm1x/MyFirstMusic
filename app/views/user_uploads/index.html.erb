@@ -1,0 +1,26 @@
+<h1>Listing Audio</h1>
+Volume:</b><input id="slide" type="range" min="1" max="100" step="1" value="50" onchange="threeSixtyPlayer.setVolume(this.value)">
+<div id="audios"></div>
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        // Initialize the jQuery File Upload widget:
+
+        //
+        // Load existing files:
+        $.getJSON('/uploads', function (files) {
+
+            console.log(files);
+            for(var i=0;i<files.length;i++){
+               var main= $('<div class="ui360"></div>');
+                var link=$('<a href="'+files[i].url+'">'+files[i].name+'</a>');
+                main.append(link);
+
+                $('#audios').append(main);
+            }
+
+        });
+
+    });
+</script>
+
+
